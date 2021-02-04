@@ -6,7 +6,6 @@ class LoginFrom extends Component{
     state = {email: "", password: "",error:'',loading:false};
       
       onButtonPress(){
-
          const {email,password} =this.state;    
          this.setState({error:'',loading:true}); 
          firebase.auth().signInWithEmailAndPassword(email,password)

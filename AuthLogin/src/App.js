@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
-import { StyleSheet, SafeAreaView } from 'react-native'
+import { StyleSheet, SafeAreaView,View ,Text} from 'react-native'
 import firebase from 'firebase';
 import {Btn, Header, Spinner} from './components/common'
 import LoginFrom from './components/LoginFrom';
 import TextInput from './components/TextInput';
 export default class App extends Component {
+
 state={loggrdIn:null}
+
   componentDidMount(){
     firebase.initializeApp({
       apiKey: "AIzaSyBuYensXkSnYOIZslJcPf4lOeJL__1VwK0",
@@ -28,17 +30,18 @@ state={loggrdIn:null}
       case true:
         return (<Btn  title="LogOut" onPress={()=>{firebase.auth().signOut()}}/>);
       case false:
-        return(
-          // <TextInput />
-          <LoginFrom />
+        return(<>
+          <View><Text>avf</Text></View>
+          <View style={{justifyContent:'center',backgroundColor:'red',height:650}}><TextInput /></View>
+             
+         
+          </>
         );
       default :
          return <Spinner />
-      
-        
     }
-   
   }
+
   render() {
     return (
       <>
